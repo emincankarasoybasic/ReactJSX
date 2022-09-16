@@ -1,17 +1,33 @@
 import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import ReactDom from 'react-dom';
+import {faker} from '@faker-js/faker';
+import CommentApprovalCard from './CommentApprovalCard';
+import CommentDetail from './CommentDetail';
+import './style/App.css';
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
-);
+const root = document.getElementById("root");
+const reactRoot = ReactDom.createRoot(root);
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+function App(){
+    return (
+        <div className="ui container comments">
+            <CommentApprovalCard>
+                <CommentDetail author={faker.name.fullName()} content={faker.lorem.sentence()} email={faker.internet.email()} avatar={faker.image.avatar()}/>
+            </CommentApprovalCard>
+            <CommentApprovalCard>
+                <CommentDetail author={faker.name.fullName()} content={faker.lorem.sentence()} email={faker.internet.email()} avatar={faker.image.avatar()}/>
+            </CommentApprovalCard>
+            <CommentApprovalCard>
+                <CommentDetail author={faker.name.fullName()} content={faker.lorem.sentence()} email={faker.internet.email()} avatar={faker.image.avatar()}/>
+            </CommentApprovalCard>
+            <CommentApprovalCard>
+                <CommentDetail author={faker.name.fullName()} content={faker.lorem.sentence()} email={faker.internet.email()} avatar={faker.image.avatar()}/>
+            </CommentApprovalCard>
+            <CommentApprovalCard>
+                <CommentDetail author={faker.name.fullName()} content={faker.lorem.sentence()} email={faker.internet.email()} avatar={faker.image.avatar()}/>
+            </CommentApprovalCard>
+        </div>
+    );
+}
+
+reactRoot.render(<App/>);
